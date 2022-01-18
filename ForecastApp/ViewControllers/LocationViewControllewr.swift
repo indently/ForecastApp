@@ -60,8 +60,6 @@ final class FindLocationViewController: UIViewController {
         var tempCity = ""
         
         WeatherAPI().getData(lon: tappedPosition.longitude, lat: tappedPosition.latitude) { weather in
-            // print(weather.city) -- DEBUGGING
-            // print(weather.list) -- DEBUGGING
             tempCity = weather.city.name
             
             // Add the weather data together and turn it into a list.
@@ -74,7 +72,7 @@ final class FindLocationViewController: UIViewController {
             }
             
             // Create the detail view
-            let weatherView = WeatherView(weatherList: weatherList, lat: tappedPosition.longitude, lon: tappedPosition.latitude, city: tempCity)
+            let weatherView = WeatherView(weatherList: weatherList, city: tempCity)
             let viewController = UIHostingController(rootView: weatherView)
             self.present(viewController, animated: true)
         }

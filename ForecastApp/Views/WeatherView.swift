@@ -9,8 +9,6 @@ import SwiftUI
 
 struct WeatherView: View {
     @State var weatherList: [String]
-    @State var lat: Double
-    @State var lon: Double
     @State var city: String
     
     var body: some View {
@@ -32,6 +30,6 @@ struct WeatherView: View {
 
 struct WeatherView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherView(weatherList: [""], lat: 2.0, lon: 2.0, city: "Sample City")
+        WeatherView(weatherList: [""], city: "Sample City")
     }
 }
