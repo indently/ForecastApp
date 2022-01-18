@@ -12,10 +12,10 @@ import SwiftUI
 
 struct MapViewCustom : UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> FindLocationViewController {
-            return FindLocationViewController()
-        }
-        func updateUIViewController(_ uiViewController: FindLocationViewController, context: Context) {
-        }
+        return FindLocationViewController()
+    }
+    func updateUIViewController(_ uiViewController: FindLocationViewController, context: Context) {
+    }
 }
 
 protocol FindLocationViewControllerOutput: AnyObject {
@@ -32,7 +32,7 @@ final class FindLocationViewController: UIViewController {
         super.viewDidLoad()
         
         view.addSubview(mapView)
-
+        
         mapView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -44,8 +44,6 @@ final class FindLocationViewController: UIViewController {
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(findLocation(_:)))
         mapView.addGestureRecognizer(gesture)
-    
-        
     }
     
     // <--------------- EDITED -------------------->
@@ -58,13 +56,27 @@ final class FindLocationViewController: UIViewController {
         let tappedPosition = mapView.convert(point, toCoordinateFrom: mapView)
         print("tappedPosition -> \(tappedPosition)")
         
+        // Get data on tap
+        var tempCity = ""
+        
         WeatherAPI().getData(lon: tappedPosition.longitude, lat: tappedPosition.latitude) { weather in
             print(weather.city)
+            print(weather.list)
+            tempCity = weather.city.name
+            
+            // Add the weather data together and turn it into a list.
+            var weatherList = [String]()
+            for data in weather.list {
+                let fDate = formatDate(data.dt)
+                
+                let tempString = "\(fDate) : \(data.main.temp) C"
+                weatherList.append(tempString)
+            }
+            
+            // Create the detail view
+            let weatherView = WeatherView(weatherList: weatherList, lat: tappedPosition.longitude, lon: tappedPosition.latitude, city: tempCity)
+            let viewController = UIHostingController(rootView: weatherView)
+            self.present(viewController, animated: true)
         }
     }
-    
 }
-
-
-
-

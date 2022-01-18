@@ -8,26 +8,21 @@
 import SwiftUI
 
 struct WeatherView: View {
-    @State private var weatherList = [String]()
+    @State var weatherList: [String]
+    @State var lat: Double
+    @State var lon: Double
+    @State var city: String
     
     var body: some View {
-        List {
-            ForEach(weatherList, id: \.self) { weather in
-                Text("\(weather)")
-                    .bold()
-                    .padding()
-            }
-        }
-        .onAppear {
-            WeatherAPI().getData(lon: 2.0, lat: 2.0) { data in
-                
-                for weather in data.list {
-                    let fDate = formatDate(weather.dt)
-                    
-                    let tempString = "\(fDate) : \(weather.main.temp) C"
-                    weatherList.append(tempString)
-                    
-                 
+        VStack {
+            Text("Weather for \(city)")
+                .bold()
+                .padding()
+            List {
+                ForEach(weatherList, id: \.self) { weather in
+                    Text("\(weather)")
+                        .bold()
+                        .padding()
                 }
             }
         }
@@ -36,6 +31,6 @@ struct WeatherView: View {
 
 struct WeatherView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherView()
+        WeatherView(weatherList: [""], lat: 2.0, lon: 2.0, city: "___")
     }
 }

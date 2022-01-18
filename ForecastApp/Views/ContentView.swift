@@ -8,14 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var navTitle = "Today"
     var body: some View {
         VStack {
-            TabController()
+            MapViewCustom()
         }
-        
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {

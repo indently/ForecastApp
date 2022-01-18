@@ -36,7 +36,7 @@ struct Coord: Codable {
     var lon: Double
 }
 
-class WeatherAPI {
+class WeatherAPI : ObservableObject {
     private let API_KEY = "870761e49da34e680b73eb62f5edfee3"
     
     func getData(lon: Double, lat: Double, completion:@escaping (Weather) -> ()) {
@@ -49,6 +49,7 @@ class WeatherAPI {
                 
                 DispatchQueue.main.async {
                     completion(weather)
+     
                 }
             }.resume()
         }
