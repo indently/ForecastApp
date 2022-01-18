@@ -13,21 +13,20 @@ struct TabController: View {
     var body: some View {
         NavigationView {
             TabView {
-                WeatherView()
-                    .tabItem {
-                        Label("Weather", systemImage: "sun.min.fill")
-                    }
-                    .onAppear() {
-                        navTitle = "Weather"
-                    }
-                    .navigationTitle(navTitle)
-                
                 MapView()
                     .tabItem {
                         Label("Map", systemImage: "map")
                     }
                     .onAppear() {
                         navTitle = "Map"
+                    }
+                    .navigationTitle(navTitle)
+                WeatherView()
+                    .tabItem {
+                        Label("Weather", systemImage: "sun.min.fill")
+                    }
+                    .onAppear() {
+                        navTitle = "Weather"
                     }
                     .navigationTitle(navTitle)
             }

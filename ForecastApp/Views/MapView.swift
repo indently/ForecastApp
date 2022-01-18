@@ -7,11 +7,15 @@
 
 import SwiftUI
 import MapKit
-import CoreLocation
+import UIKit
+
 
 struct MapView: View {
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+    
+    @State private var region =
+    MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 55.6760968, longitude: 12.5683371), span: MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0))
     @State private var mapOpacity = 0.0
+    
     
     var body: some View {
         Map(coordinateRegion: $region, showsUserLocation: true, userTrackingMode: .constant(.follow))
@@ -21,8 +25,12 @@ struct MapView: View {
                     mapOpacity = 1.0
                 }
             }
-    
+            .onTapGesture {
+                print("Tapped")
+            }
     }
+    
+    
 }
 
 struct MapView_Previews: PreviewProvider {
