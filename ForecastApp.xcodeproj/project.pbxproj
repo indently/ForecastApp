@@ -60,7 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				7A2B4AA32795E7DD00403C25 /* ForecastAppApp.swift */,
-				7AD5AA382796DCEE00DDAEB5 /* Date.swift */,
+				7A6FC2BB2797059700C4394C /* Utils */,
 				7AB0F8872796C91500A914BC /* Views */,
 				7AF8BF792796EDD7000F8882 /* ViewControllers */,
 				7AD5AA332796CDAA00DDAEB5 /* API */,
@@ -76,6 +76,14 @@
 				7A2B4AAA2795E7DF00403C25 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7A6FC2BB2797059700C4394C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7AD5AA382796DCEE00DDAEB5 /* Date.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		7AB0F8872796C91500A914BC /* Views */ = {
