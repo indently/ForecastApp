@@ -31,6 +31,6 @@ struct WeatherView: View {
 
 struct WeatherView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherView(weatherList: [""], lat: 2.0, lon: 2.0, city: "___")
+        WeatherView(weatherList: [""], lat: 2.0, lon: 2.0, city: "Sample City")
     }
 }
