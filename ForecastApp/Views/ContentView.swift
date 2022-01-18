@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var navTitle = "Today"
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        TabController()
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
