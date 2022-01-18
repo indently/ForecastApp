@@ -46,7 +46,7 @@ final class FindLocationViewController: UIViewController {
         mapView.addGestureRecognizer(gesture)
     }
     
-    // <--------------- EDITED -------------------->
+    // <--------------- EDITED by Federico-------------------->
     @objc
     private func findLocation(_ gesture: UITapGestureRecognizer) {
         let point = gesture.location(in: mapView)
@@ -54,14 +54,14 @@ final class FindLocationViewController: UIViewController {
         
         // Added the conversion to CLLocationCoordinate2D
         let tappedPosition = mapView.convert(point, toCoordinateFrom: mapView)
-        print("tappedPosition -> \(tappedPosition)")
+        // print("tappedPosition -> \(tappedPosition)") -- DEBUGGING
         
         // Get data on tap
         var tempCity = ""
         
         WeatherAPI().getData(lon: tappedPosition.longitude, lat: tappedPosition.latitude) { weather in
-            print(weather.city)
-            print(weather.list)
+            // print(weather.city) -- DEBUGGING
+            // print(weather.list) -- DEBUGGING
             tempCity = weather.city.name
             
             // Add the weather data together and turn it into a list.
@@ -69,7 +69,7 @@ final class FindLocationViewController: UIViewController {
             for data in weather.list {
                 let fDate = formatDate(data.dt)
                 
-                let tempString = "\(fDate) : \(data.main.temp) C"
+                let tempString = "\(fDate) : \(data.main.temp) C°"
                 weatherList.append(tempString)
             }
             

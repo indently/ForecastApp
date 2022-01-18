@@ -18,6 +18,7 @@ struct WeatherView: View {
             Text("Weather for \(city)")
                 .bold()
                 .padding()
+                
             List {
                 ForEach(weatherList, id: \.self) { weather in
                     Text("\(weather)")

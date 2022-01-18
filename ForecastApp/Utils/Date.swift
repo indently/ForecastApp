@@ -18,5 +18,5 @@ func formatDate(_ timestamp: Int) -> String {
     let month = components.month ?? 0
     let year = components.year ?? 0
     
-    return "\(day)/\(month) (\(hour):00)"
+    return "(\(day)/\(month) - \(hour):00)"
 }

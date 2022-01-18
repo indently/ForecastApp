@@ -15,7 +15,7 @@ struct ContentView: View {
             MapViewCustom()
                 .opacity(opac)
                 .onAppear {
-                    withAnimation(.easeIn(duration: 3)) {
+                    withAnimation(.easeIn(duration: 1.5)) {
                         opac = 1.0
                     }
                 }
