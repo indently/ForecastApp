@@ -46,7 +46,7 @@ final class FindLocationViewController: UIViewController {
         mapView.addGestureRecognizer(gesture)
     }
     
-    // <--------------- EDITED by Federico-------------------->
+    // <--------------- EDITED by Federico -------------------->
     @objc
     private func findLocation(_ gesture: UITapGestureRecognizer) {
         let point = gesture.location(in: mapView)
