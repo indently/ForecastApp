@@ -9,9 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var navTitle = "Today"
-    
     var body: some View {
-        TabController()
+        VStack {
+            TabController()
+        }
+        
     }
     
 }

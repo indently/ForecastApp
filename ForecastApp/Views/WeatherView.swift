@@ -19,7 +19,7 @@ struct WeatherView: View {
             }
         }
         .onAppear {
-            WeatherAPI().getData { data in
+            WeatherAPI().getData(lon: 2.0, lat: 2.0) { data in
                 
                 for weather in data.list {
                     let fDate = formatDate(weather.dt)

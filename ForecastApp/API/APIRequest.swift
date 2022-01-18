@@ -32,15 +32,15 @@ struct WeatherCity: Codable {
 }
 
 struct Coord: Codable {
-    var lat: Int
-    var lon: Int
+    var lat: Double
+    var lon: Double
 }
 
 class WeatherAPI {
     private let API_KEY = "870761e49da34e680b73eb62f5edfee3"
     
-    func getData(completion:@escaping (Weather) -> ()) {
-            guard let url = URL(string: "https://api.openweathermap.org/data/2.5/forecast?lat=35&lon=139&appid=\(API_KEY)&units=metric") else { return }
+    func getData(lon: Double, lat: Double, completion:@escaping (Weather) -> ()) {
+            guard let url = URL(string: "https://api.openweathermap.org/data/2.5/forecast?lat=\(lat)&lon=\(lon)&appid=\(API_KEY)&units=metric") else { return }
             
             URLSession.shared.dataTask(with: url) { (data, response, error) in
                 guard let data = data else { return }
